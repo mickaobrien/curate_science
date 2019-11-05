@@ -4,8 +4,9 @@ import { withCookies, Cookies } from 'react-cookie';
 
 import Typography from '@material-ui/core/Typography';
 import {
-    Grid,
     Button,
+    ClickAwayListener,
+    Grid,
     Icon,
     IconButton,
     InputAdornment,
@@ -15,14 +16,15 @@ import {
     Tooltip
 } from '@material-ui/core';
 
-import AuthorEditor from '../components/AuthorEditor.jsx';
 import ArticleEditor from '../components/ArticleEditor.jsx';
 import ArticleLI from '../components/ArticleLI.jsx';
 import ArticleList from '../components/ArticleList.jsx';
-import Loader from '../components/shared/Loader.jsx';
+import ArticleSelector from '../components/curateform/ArticleSelector.jsx';
+import AuthorEditor from '../components/AuthorEditor.jsx';
+import AuthorEmbedPopup from '../components/AuthorEmbedPopup.jsx';
 import AuthorLinks from '../components/AuthorLinks.jsx';
 import LabeledBox from '../components/shared/LabeledBox.jsx';
-import ArticleSelector from '../components/curateform/ArticleSelector.jsx';
+import Loader from '../components/shared/Loader.jsx';
 
 import { includes, merge } from 'lodash'
 
@@ -398,7 +400,10 @@ class AuthorPage extends React.Component {
                                             </div>
                                         </Popover>
                                     </div>
-                                    {search_filter}
+                                    <Grid container alignItems="center" justify="space-between">
+                                        {search_filter}
+                                        <AuthorEmbedPopup/>
+                                    </Grid>
                                 </div>
                                 : 
                                 <Grid container alignItems="center" justify="space-between">
